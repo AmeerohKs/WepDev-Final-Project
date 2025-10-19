@@ -1,0 +1,15 @@
+{% extends "bakery/base.html" %}
+{% block title %}My Account - AMiROH Bakery{% endblock %}
+{% block content %}
+<section class="max-w-3xl mx-auto py-16 text-center">
+    <h2 class="text-4xl font-bold mb-8 text-brown-700">My Account</h2>
+
+    {% if user.is_authenticated %}
+        <p class="mb-4">Welcome, <strong>{{ user.username }}</strong> 👋</p>
+        <a href="{% url 'logout' %}" class="text-red-500 underline">Logout</a>
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}" class="text-brown-700 underline">Login</a>
+    {% endif %}
+</section>
+{% endblock %}

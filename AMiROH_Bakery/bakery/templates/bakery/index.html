@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 1. Character Encoding -->
+    <meta charset="UTF-8">
+
+    <!-- 2. Description -->
+    <meta name="description" content="Artisan Bakery – Freshly baked bread, pastries, and cakes made daily with love.">
+
+    <!-- 3. Keywords -->
+    <meta name="keywords" content="Bakery, Pastries, Cakes, Bread, Coffee, Online Ordering, Artisan">
+
+    <!-- 4. Author -->
+    <meta name="author" content="Artisan Bakery Team">
+
+    <!-- 5. Responsive Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Artisan Bakery - Fresh Baked Daily{% endblock %}</title>
+
+    <!-- Tailwind CDN (or collectstatic later) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="{% static 'bakery/css/style.css' %}">
+</head>
+<body class="bg-bakery-cream font-inter">
+    {% block content %}{% endblock %}
+</body>
+</html>

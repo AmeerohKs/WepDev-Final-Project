@@ -1,0 +1,68 @@
+{% load static %}
+<div id="promo-banner" class="promo-banner text-white py-3 px-4 text-center relative">
+    <p class="font-medium" id="promo-text">🎉 Grand Opening Special: 20% off all cakes this week!</p>
+    <button onclick="closePromoBanner()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-200">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+</div>
+
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-playfair font-bold text-bakery-brown" id="nav-bakery-name"><a href="{% url 'bakery:home' %}">AMiROH Bakery</a></h1>
+                </div>
+            </div>
+
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-8">
+                    <a href="{% url 'bakery:home' %}" class="nav-link text-gray-700 hover:text-bakery-brown font-medium">Home</a> 
+                    <a href="{% url 'bakery:menu' %}" class="nav-link text-gray-700 hover:text-bakery-brown font-medium">Menu</a> 
+                    <a href="{% url 'bakery:cart' %}" class="nav-link text-gray-700 hover:text-bakery-brown font-medium relative"> Cart <span id="cart-badge" class="cart-badge hidden">0</span> </a> 
+                    <a href="{% url 'bakery:reviews' %}" class="nav-link text-gray-700 hover:text-bakery-brown font-medium">Reviews</a> 
+                    <a href="{% url 'bakery:about' %}" class="nav-link text-gray-700 hover:text-bakery-brown font-medium">About</a>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-4">
+                {% if user.is_authenticated %}
+                <div id="user-menu"><span class="text-bakery-brown font-medium" id="user-name">Welcome, {{ user.username }}!</span> 
+                    <a href="{% url 'bakery:account' %}" class="text-bakery-brown hover:text-bakery-gold ml-2">Account</a> 
+                    <a href="{% url 'logout' %}" class="text-gray-600 hover:text-bakery-brown ml-2">Logout</a>
+                </div>
+                {% else %}
+                <div id="auth-buttons">
+                    <button onclick="showModal('login')" class="text-bakery-brown hover:text-bakery-gold font-medium">Login</button> 
+                    <button onclick="showModal('register')" class="btn-primary text-white px-4 py-2 rounded-lg ml-2">Sign Up</button>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-gray-700 hover:text-bakery-brown">
+                    <svg class="h-6 w-6" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="{% url 'bakery:home' %}" class="block px-3 py-2 text-gray-700 hover:text-bakery-brown">Home</a> 
+            <a href="{% url 'bakery:menu' %}" class="block px-3 py-2 text-gray-700 hover:text-bakery-brown">Menu</a> 
+            <a href="{% url 'bakery:cart' %}" class="block px-3 py-2 text-gray-700 hover:text-bakery-brown">Cart (<span id="mobile-cart-count">0</span>)</a> 
+            <a href="{% url 'bakery:reviews' %}" class="block px-3 py-2 text-gray-700 hover:text-bakery-brown">Reviews</a> 
+            <a href="{% url 'bakery:about' %}" class="block px-3 py-2 text-gray-700 hover:text-bakery-brown">About</a>
+            <div id="mobile-auth" class="pt-2 border-t">
+                {% if user.is_authenticated %}
+                <a href="{% url 'bakery:account' %}" class="block w-full text-left px-3 py-2 text-bakery-brown">Account</a>
+                <a href="{% url 'logout' %}" class="block w-full text-left px-3 py-2 text-bakery-brown">Logout</a>
+                {% else %}
+                <button onclick="showModal('login')" class="block w-full text-left px-3 py-2 text-bakery-brown">Login</button> 
+                <button onclick="showModal('register')" class="block w-full text-left px-3 py-2 text-bakery-brown">Sign Up</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
