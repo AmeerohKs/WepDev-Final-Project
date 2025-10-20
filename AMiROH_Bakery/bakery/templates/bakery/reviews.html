@@ -5,18 +5,20 @@
     <h2 class="text-4xl font-bold mb-8 text-center text-brown-700">Customer Reviews</h2>
 
     <!-- ฟอร์มเพิ่มรีวิว -->
-    <form method="POST" action="{% url 'bakery:submit_review' %}" class="bg-white p-8 rounded-2xl shadow-bakery mb-12">
+    <form id="review-form" class="bg-white p-6 rounded-2xl shadow-md mb-10">
         {% csrf_token %}
-        <h2 class="text-3xl font-playfair font-semibold text-bakery-brown mb-6">Share Your Experience</h2>
-        
-        <div><label class="block text-sm font-semibold text-gray-700 mb-3">Rating</label>
-            <div class="flex space-x-2" id="star-rating">
-                <button type="button" class="star text-4xl text-gray-300 hover:text-bakery-gold transition-colors" data-rating="1">★</button> 
-            </div>
-            <input type="hidden" id="rating-value" name="rating" value="0">
-        </div>
-        
-        <button type="submit" class="btn-primary text-white px-8 py-3 rounded-lg font-semibold text-lg">Submit Review</button>
+        <input type="text" id="review-name" name="name" placeholder="Your Name" class="border p-2 w-full mb-3 rounded">
+        <input type="email" id="review-email" name="email" placeholder="Your Email (optional)" class="border p-2 w-full mb-3 rounded">
+        <select id="review-rating" name="rating" class="border p-2 w-full mb-3 rounded">
+            <option value="">Rating</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+        <textarea id="review-comment" name="comment" placeholder="Write your review..." class="border p-2 w-full mb-3 rounded"></textarea>
+        <button type="submit" class="bg-brown-700 text-white px-5 py-3 rounded-lg hover:bg-brown-800">Submit Review</button>
     </form>
 
     <!-- รีวิวจาก DB -->

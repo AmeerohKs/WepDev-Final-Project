@@ -1,31 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
     {% load static %}
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="description" content="AMiROH Bakery – Freshly baked bread, pastries, and cakes made daily with love.">
-    <meta name="keywords" content="Bakery, Pastries, Cakes, Bread, Coffee, Online Ordering, AMiROH">
+    <meta name="description" content="AMiROH Bakery – Freshly baked bread, pastries, and cakes made daily.">
+    <meta name="keywords" content="bakery, pastries, cakes, bread, coffee, order online, fresh bakery">
     <meta name="author" content="AMiROH Bakery Team">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>{% block title %}AMiROH Bakery - Fresh Baked Daily{% endblock %}</title>
-
-    <link rel="stylesheet" href="{% static 'bakery/css/style.css' %}">
+    <title>{% block title %}AMiROH Bakery{% endblock %}</title>
+    
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>@view-transition { navigation: auto; }</style>
-    {% block extra_css %}{% endblock %}
- </head>
- <body class="bg-bakery-cream font-inter">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'bakery/css/style.css' %}">
+</head>
+<body class="bg-bakery-cream font-inter text-gray-900">
+    
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
+        <h1 class="text-2xl font-bold text-brown-800">
+            <a href="{% url 'bakery:home' %}">🥐 AMiROH Bakery</a>
+        </h1>
+        <ul class="flex gap-6 text-lg">
+            <li><a href="{% url 'bakery:home' %}" class="hover:text-brown-600">Home</a></li>
+            <li><a href="{% url 'bakery:menu' %}" class="hover:text-brown-600">Menu</a></li>
+            <li><a href="{% url 'bakery:cart' %}" class="hover:text-brown-600">Order</a></li>
+            <li><a href="{% url 'bakery:reviews' %}" class="hover:text-brown-600">Reviews</a></li>
+            <li><a href="{% url 'bakery:about' %}" class="hover:text-brown-600">About Us</a></li>
+        </ul>
+    </nav>
 
-    {% include 'bakery/_modals.html' %} 
+    {% block content %}{% endblock %}
 
-    {% include 'bakery/_nav.html' %}
-
-    <main id="main-content">
-        {% block content %}{% endblock %}
-    </main>
+    <!-- Footer -->
+    <footer class="bg-brown-900 text-white text-center py-6 mt-20">
+        <p>&copy; 2025 AMiROH Bakery | Baked with ❤️ every day.</p>
+    </footer>
 
     <script src="{% static 'bakery/js/main.js' %}"></script>
-    {% block extra_js %}{% endblock %}
- </body>
+</body>
 </html>
