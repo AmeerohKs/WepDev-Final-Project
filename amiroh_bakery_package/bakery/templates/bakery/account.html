@@ -1,0 +1,35 @@
+{% extends "bakery/base.html" %}
+{% load static %}
+
+{% block title %}My Account - AMiROH Bakery{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-12">
+        <h1 class="text-5xl font-playfair font-bold text-bakery-brown mb-4">My Account</h1>
+        <p class="text-xl text-gray-600">Manage your profile and view order history</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-white rounded-2xl shadow-bakery p-8">
+            <h2 class="text-2xl font-playfair font-semibold text-bakery-brown mb-6">Profile Information</h2>
+            <div id="profile-info" class="space-y-4">
+                <div class="text-center py-8">
+                    <p class="text-gray-600">Loading profile...</p>
+                    <div class="spinner mx-auto mt-4"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-bakery p-8">
+            <h2 class="text-2xl font-playfair font-semibold text-bakery-brown mb-6">Order History</h2>
+            <div id="order-history" class="space-y-4">
+                <div class="text-center py-8">
+                    <p class="text-gray-600">Loading orders...</p>
+                    <div class="spinner mx-auto mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

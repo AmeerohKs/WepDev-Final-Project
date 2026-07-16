@@ -1,0 +1,31 @@
+{% extends "bakery/base.html" %}
+{% load static %}
+
+{% block title %}Menu - AMiROH Bakery{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-12">
+        <h1 class="text-5xl font-playfair font-bold text-bakery-brown mb-4">Our Menu</h1>
+        <p class="text-xl text-gray-600">Discover our complete selection of handcrafted baked goods</p>
+    </div>
+    
+    <!-- Category Filters -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button onclick="filterMenu('all')" class="filter-btn active bg-bakery-brown text-white px-6 py-3 rounded-full font-medium transition-all">All Items</button> 
+        <button onclick="filterMenu('cakes')" class="filter-btn bg-white text-bakery-brown border-2 border-bakery-brown px-6 py-3 rounded-full font-medium transition-all hover:bg-bakery-brown hover:text-white">Cakes</button> 
+        <button onclick="filterMenu('pastries')" class="filter-btn bg-white text-bakery-brown border-2 border-bakery-brown px-6 py-3 rounded-full font-medium transition-all hover:bg-bakery-brown hover:text-white">Pastries</button> 
+        <button onclick="filterMenu('bread')" class="filter-btn bg-white text-bakery-brown border-2 border-bakery-brown px-6 py-3 rounded-full font-medium transition-all hover:bg-bakery-brown hover:text-white">Bread</button> 
+        <button onclick="filterMenu('drinks')" class="filter-btn bg-white text-bakery-brown border-2 border-bakery-brown px-6 py-3 rounded-full font-medium transition-all hover:bg-bakery-brown hover:text-white">Drinks</button>
+    </div>
+    
+    <!-- Menu Grid - Populated by JavaScript (main.js: renderMenu) -->
+    <div id="menu-grid" class="product-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Loading Placeholder -->
+        <div class="col-span-full text-center py-20">
+            <div class="spinner border-bakery-brown w-8 h-8 mx-auto mb-4"></div>
+            <p class="text-lg text-gray-600">Loading delicious items...</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

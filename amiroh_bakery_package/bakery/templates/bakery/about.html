@@ -1,0 +1,76 @@
+{% extends "bakery/base.html" %}
+{% load static %}
+
+{% block title %}About & Contact - AMiROH Bakery{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-12">
+        <h1 class="text-5xl font-playfair font-bold text-bakery-brown mb-4">About Us &amp; Contact</h1>
+        <p class="text-xl text-gray-600">Learn more about our bakery and get in touch</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-8">
+            <div class="bg-white rounded-2xl shadow-bakery p-8">
+                <h2 class="text-3xl font-playfair font-semibold text-bakery-brown mb-6 flex items-center"><span class="text-4xl mr-3">📍</span> Visit Our Bakery</h2>
+                <div class="space-y-4 text-lg text-gray-600">
+                    <p id="bakery-address">123 Baker Street, AMiROH City, NT 12345</p>
+                    <p id="bakery-phone">Phone: (555) 123-BAKE</p>
+                    <p id="bakery-email">Email: hello@AMiROHbakery.com</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-bakery p-8">
+                <h2 class="text-3xl font-playfair font-semibold text-bakery-brown mb-6 flex items-center"><span class="text-4xl mr-3">🕒</span> Opening Hours</h2>
+                <div class="space-y-3 text-lg">
+                    <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="font-medium text-gray-700">Monday - Friday</span> <span class="text-bakery-brown font-semibold">6:00 AM - 8:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="font-medium text-gray-700">Saturday</span> <span class="text-bakery-brown font-semibold">7:00 AM - 9:00 PM</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2"><span class="font-medium text-gray-700">Sunday</span> <span class="text-bakery-brown font-semibold">8:00 AM - 7:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-bakery p-8">
+                <h2 class="text-3xl font-playfair font-semibold text-bakery-brown mb-6 flex items-center"><span class="text-4xl mr-3">📱</span> Follow Us</h2>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-4xl hover:scale-110 transition-transform">📘</a> 
+                    <a href="#" class="text-4xl hover:scale-110 transition-transform">📷</a> 
+                    <a href="#" class="text-4xl hover:scale-110 transition-transform">🐦</a> 
+                    <a href="#" class="text-4xl hover:scale-110 transition-transform">📺</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-bakery p-8">
+            <h2 class="text-3xl font-playfair font-semibold text-bakery-brown mb-6">Get in Touch</h2>
+            <form id="contact-form" class="space-y-6">
+                <div><label for="contact-name" class="block text-sm font-semibold text-gray-700 mb-2">Name</label> <input type="text" id="contact-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bakery-brown focus:border-transparent text-lg" required>
+                </div>
+                <div><label for="contact-email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label> <input type="email" id="contact-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bakery-brown focus:border-transparent text-lg" required>
+                </div>
+                <div><label for="contact-message" class="block text-sm font-semibold text-gray-700 mb-2">Message</label> <textarea id="contact-message" rows="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-bakery-brown focus:border-transparent text-lg" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-4 rounded-lg font-semibold text-lg"> 
+                    <span id="contact-btn-text">Send Message</span>
+                    <div id="contact-spinner" class="spinner mx-auto hidden"></div>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="mt-12 bg-white rounded-2xl shadow-bakery p-8">
+        <h2 class="text-3xl font-playfair font-semibold text-bakery-brown mb-6 text-center">Find Us</h2>
+        <div class="bg-gradient-to-br from-bakery-light to-bakery-cream h-80 rounded-xl flex items-center justify-center">
+            <div class="text-center text-bakery-brown">
+                <div class="text-6xl mb-4">
+                    🗺️
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">Interactive Map</h3>
+                <p class="text-lg opacity-80">Google Maps integration would be embedded here</p>
+                <p class="text-sm mt-2 opacity-60">123 Baker Street, AMiROH City, AC 12345</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

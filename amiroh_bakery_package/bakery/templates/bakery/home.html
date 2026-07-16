@@ -1,0 +1,124 @@
+{% extends "bakery/base.html" %}
+{% load static %}
+
+{% block title %}Home - AMiROH Bakery{% endblock %}
+
+{% block content %}
+<section class="relative bg-gradient-to-br from-bakery-cream to-bakery-light py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-white bg-opacity-50"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="hero-title text-5xl md:text-7xl font-playfair font-bold text-bakery-brown mb-6 fade-in" id="hero-title">Freshly Baked Every Day</h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto fade-in" id="hero-subtitle">Handcrafted breads, pastries &amp; cakes made with love using traditional recipes and the finest ingredients</p>
+            <a href="{% url 'bakery:menu' %}" class="btn-primary text-white px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center space-x-3 fade-in"> 
+                <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17M17 13V17C17 18.1 16.1 19 15 19H9C7.9 19 7 18.1 7 17V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Order Now</span> 
+            </a>
+        </div>
+    </div>
+</section>
+
+{% load static %}
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="product-card bg-white rounded-2xl shadow-bakery overflow-hidden">
+                <div class="h-64 bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center overflow-hidden">
+                    <img 
+                        src="{% static 'bakery/img/Signature_Chocolate_Cake.png' %}" 
+                        alt="Signature Chocolate Cake" 
+                        class="object-cover w-full h-full"
+                    >
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-bakery-brown mb-2">Signature Chocolate Cake</h3>
+                    <p class="text-gray-600 mb-4">Rich, moist chocolate layers with premium Belgian chocolate ganache and fresh berries</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-bakery-brown">499 ฿</span> 
+                        <button onclick="addToCart('Signature Chocolate Cake', 499, 'Signature_Chocolate_Cake.png')" class="btn-secondary text-white px-6 py-2 rounded-lg font-medium">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card bg-white rounded-2xl shadow-bakery overflow-hidden">
+                <div class="h-64 bg-gradient-to-br from-pink-100 to-red-100 flex items-center justify-center overflow-hidden">
+                    <img 
+                        src="{% static 'bakery/img/AMiROH_Croissants.png' %}" 
+                        alt="AMiROH Croissants" 
+                        class="object-cover w-full h-full"
+                    >
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-bakery-brown mb-2">AMiROH Croissants</h3>
+                    <p class="text-gray-600 mb-4">Buttery, flaky pastries made with French technique and European butter</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-bakery-brown">85 ฿</span> 
+                        <button onclick="addToCart('AMiROH Croissants', 85, 'AMiROH_Croissants.png')" class="btn-secondary text-white px-6 py-2 rounded-lg font-medium">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card bg-white rounded-2xl shadow-bakery overflow-hidden">
+                <div class="h-64 bg-gradient-to-br from-amber-100 to-yellow-100 flex items-center justify-center overflow-hidden">
+                    <img 
+                        src="{% static 'bakery/img/Sourdough_Bread.png' %}" 
+                        alt="Sourdough Bread" 
+                        class="object-cover w-full h-full"
+                    >
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-playfair font-semibold text-bakery-brown mb-2">Sourdough Bread</h3>
+                    <p class="text-gray-600 mb-4">Traditional sourdough with perfect crust and tangy flavor, fermented for 24 hours</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-bold text-bakery-brown">120 ฿</span> 
+                        <button onclick="addToCart('Sourdough Bread', 7.99, 'Sourdough_Bread.png')" class="btn-secondary text-white px-6 py-2 rounded-lg font-medium">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-bakery-light">
+    <div class="max-w-7xl mx-auto px-10 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl shadow-bakery p-8 md:p-12 text-center">
+            <h2 class="text-4xl font-playfair font-bold text-bakery-brown mb-6">This Week's Special</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-bakery-brown mb-4">Weekend Breakfast Bundle</h3>
+                    <p class="text-gray-600 mb-6">Start your weekend right with our special bundle: 6 fresh croissants, AMiROH jam, and premium coffee beans</p>
+                    <div class="flex items-center justify-center space-x-4 mb-6">
+                        <span class="text-4xl font-bold text-bakery-brown">75 ฿</span> 
+                        <span class="text-2xl text-gray-500 line-through">100 ฿</span> 
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">25% OFF</span>
+                    </div>
+                    <button onclick="addToCart('Weekend Breakfast Bundle', 24.99, 'Weekend_Breakfast_Bundle.png')" class="btn-primary text-white px-8 py-3 rounded-lg font-semibold">Order Bundle</button>
+                </div>
+                
+                <div class="flex items-center justify-center">
+                    <img 
+                        src="{% static 'bakery/img/Weekend_Breakfast_Bundle.png' %}" 
+                        alt="Weekend Breakfast Bundle" 
+                        class="w-96 h-64 object-cover rounded-xl shadow-lg"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl font-playfair font-bold text-bakery-brown mb-8">AMiROH Story</h2>
+        <div class="prose prose-lg mx-auto text-gray-600">
+            <p class="text-xl leading-relaxed mb-6">I'm Ameeroh Kasansakul 662437002, I'm a student of Fatoni university, Thailand</p>
+            <p class="text-xl leading-relaxed mb-6">I make a webside for my small bussines of handmade bakery</p>
+            <p class="text-xl leading-relaxed">Hope everyone enjoy</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
